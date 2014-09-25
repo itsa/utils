@@ -40,10 +40,6 @@
     "homepage": "http://itsa.github.io",
     "maintainers": [
         {
-            "name": "Daniel Barreiro",
-            "email": "devasatyam@gmail.com"
-        },
-        {
             "name": "Marco Asbreuk",
             "email": "marco@itsasbreuk.nl"
         }
