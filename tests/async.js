@@ -13,7 +13,7 @@ Object.prototype.each = function (fn, context) {
     return this;
 };
 
-var timers = require("../index.js"),
+var utils = require("../index.js"),
     merge = function (obj1, obj2) {
         obj2.each(function (value, key) {
             if (!(key in obj1)) {
@@ -25,14 +25,14 @@ var timers = require("../index.js"),
 describe('Testing async-method', function () {
     it('went async', function () {
         var count = 0;
-        timers.async(function() {
+        utils.async(function() {
             count++;
         });
         expect(count).to.eql(0);
     });
     it('invoked', function (done) {
         var count = 0;
-        timers.async(function() {
+        utils.async(function() {
             count++;
         });
         setTimeout(function() {
@@ -42,7 +42,7 @@ describe('Testing async-method', function () {
     });
     it('invoked asap', function (done) {
         var count = 0;
-        timers.async(function() {
+        utils.async(function() {
             count++;
         });
         setTimeout(function() {
@@ -53,7 +53,7 @@ describe('Testing async-method', function () {
     it('canceled async', function (done) {
         var count = 0,
             handle;
-        handle = timers.async(function() {
+        handle = utils.async(function() {
             count++;
         });
         handle.cancel();
@@ -68,11 +68,11 @@ describe('Testing async-method', function () {
                 (this === a).should.be.true;
                 done();
             };
-        timers.async(fn.bind(a));
+        utils.async(fn.bind(a));
     });
     it('check if _afterAsyncFn is invoked', function (done) {
         var I = {};
-        merge(I, timers);
+        merge(I, utils);
         I._afterAsyncFn = function() {
             done();
         };
@@ -81,7 +81,7 @@ describe('Testing async-method', function () {
 
     it('check if _afterAsyncFn is invoked with true param', function (done) {
         var I = {};
-        merge(I, timers);
+        merge(I, utils);
         I._afterAsyncFn = function() {
             done();
         };
@@ -90,7 +90,7 @@ describe('Testing async-method', function () {
 
     it('check if _afterAsyncFn is invoked with false param', function (done) {
         var I = {};
-        merge(I, timers);
+        merge(I, utils);
         I._afterAsyncFn = function() {
             done(new Error('_afterAsyncFn got invoked but should not have'));
         };
