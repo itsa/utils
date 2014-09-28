@@ -26,6 +26,9 @@
     "engines": {
         "node": "*"
     },
+    "dependencies": {
+        "polyfill": "itsa/polyfill"
+    },
     "devDependencies": {
         "chai": "^1.9.1",
         "istanbul": "^0.3.0",
