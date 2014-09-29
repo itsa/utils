@@ -45,10 +45,11 @@ describe('Testing async-method', function () {
         utils.async(function() {
             count++;
         });
+        expect(count).to.eql(0);
         setTimeout(function() {
             expect(count).to.eql(1);
             done();
-        }, 0);
+        }, 5);
     });
     it('canceled async', function (done) {
         var count = 0,
