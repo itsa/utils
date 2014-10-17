@@ -1,8 +1,9 @@
 /*global describe, it */
+/*jshint unused:false */
+
 "use strict";
 
-var expect = require('chai').expect,
-    should = require('chai').should();
+var expect = require('chai').expect;
 
 Object.prototype.each = function (fn, context) {
     for (var key in this) {
