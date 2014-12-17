@@ -67,7 +67,7 @@ describe('Testing async-method', function () {
     it('check context', function (done) {
         var a = {},
             fn = function() {
-                (this === a).should.be.true;
+                expect(this === a).to.be.true;
                 done();
             };
         utils.async(fn.bind(a));
