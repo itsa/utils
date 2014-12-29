@@ -1,8 +1,9 @@
 /*global describe, it */
+/*jshint unused:false */
+
 "use strict";
 
-var expect = require('chai').expect,
-    should = require('chai').should();
+var expect = require('chai').expect;
 
 Object.prototype.each = function (fn, context) {
     for (var key in this) {
@@ -66,7 +67,7 @@ describe('Testing async-method', function () {
     it('check context', function (done) {
         var a = {},
             fn = function() {
-                (this === a).should.be.true;
+                expect(this === a).to.be.true;
                 done();
             };
         utils.async(fn.bind(a));

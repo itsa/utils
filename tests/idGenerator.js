@@ -1,7 +1,8 @@
 /*global describe, it */
+/*jshint unused:false */
+
 "use strict";
-var expect = require('chai').expect,
-    should = require('chai').should();
+var expect = require('chai').expect;
 
 var generator = require('../index.js').idGenerator;
 
