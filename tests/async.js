@@ -72,6 +72,7 @@ describe('Testing async-method', function () {
             };
         utils.async(fn.bind(a));
     });
+/*
     it('check if _afterAsyncFn is invoked', function (done) {
         var I = {};
         merge(I, utils);
@@ -99,4 +100,5 @@ describe('Testing async-method', function () {
         I.async(function() {}, false);
         setTimeout(done, 50);
     });
+*/
 });
