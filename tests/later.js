@@ -249,7 +249,7 @@ describe('Testing later-method', function () {
         it('check context without interval', function (done) {
             var a = {},
                 fn = function() {
-                    (this === a).should.be.true;
+                    expect(this).to.be.eql(a);
                     done();
                 };
             timers.later(fn.bind(a), 0);
@@ -257,7 +257,7 @@ describe('Testing later-method', function () {
         it('check context with interval', function (done) {
             var a = {},
                 fn = function() {
-                    (this === a).should.be.true;
+                    expect(this).to.be.eql(a);
                 },
                 handle = timers.later(fn.bind(a), 50, true);
             setTimeout(function() {
@@ -268,7 +268,7 @@ describe('Testing later-method', function () {
         it('check going to async', function (done) {
             timers.later(done);
         });
-
+/*
         it('check if _afterAsyncFn is invoked', function (done) {
             var I = {};
             merge(I, timers);
@@ -394,7 +394,7 @@ describe('Testing later-method', function () {
                 done();
             }, 275);
         });
-
+*/
     });
 
 });
